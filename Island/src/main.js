@@ -7,7 +7,6 @@ import router from './router'
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 // 引入Echart组件,以后再引入把
-
 Vue.config.productionTip = false
 Vue.use(MintUI)
 
