@@ -1,0 +1,11 @@
+.friend>.mint-cell-wrapper>.mint-cell-title{
+  float: left;
+  width: auto;
+  margin-right: 50px;
+  flex: none;
+}
+.friend>.mint-cell-wrapper>.mint-cell-value{
+  float: right;
+  flex:none;
+  display: block;
+}
