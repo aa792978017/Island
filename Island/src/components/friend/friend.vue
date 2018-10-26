@@ -9,15 +9,15 @@
 </template>
 
 <script>
-  import Header from '../main/header'
-  import '../../assets/css/newmint-ui.css'
-  export default {
-    name: 'friend',
-    components: {
-      vheader: Header
-    },
-    props:['headTitle']
-  }
+import Header from '../main/header'
+import '../../assets/css/newmint-ui.css'
+export default {
+  name: 'friend',
+  components: {
+    vheader: Header
+  },
+  props: ['headTitle']
+}
 </script>
 
 <style scoped>

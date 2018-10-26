@@ -1,17 +1,13 @@
 <template>
-  <div id="app"style="width: 100%;height: 100%">
-    <vcontain></vcontain>
+  <div id="app" style="width: 100%;height: 100%">
     <router-view/>
   </div>
 </template>
 
 <script>
-import Contain from './components/main/contain'
-
 export default {
   name: 'App',
   components: {
-    vcontain: Contain,
   },
   data () {
     return {
@@ -24,7 +20,7 @@ export default {
       this.selected = 1
     }
   },
-  beforeCreate(){
+  beforeCreate () {
     this.init()
   }
 
@@ -40,7 +36,11 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+html{
+}
+
 body{
+  /*background-color: #eaeaea;*/
   margin: 0px;
   padding: 0px
 }

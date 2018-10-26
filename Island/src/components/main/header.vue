@@ -1,5 +1,5 @@
 <template>
-  <mt-header :title="headTitle">
+  <mt-header :title="headTitle" style="height: 50%">
     <router-link to="/" slot="left">
       <mt-button icon="back">返回</mt-button>
     </router-link>
@@ -8,17 +8,19 @@
 </template>
 
 <script>
-  export default {
-    name: 'header',
-    data () {
-      return {
-      }
-    },
-    methods:{
+export default {
 
-    },
-    props: ['headTitle'],
-  }
+  name: 'header',
+
+  data () {
+    return {
+    }
+  },
+  methods: {
+
+  },
+  props: ['headTitle']
+}
 </script>
 
 <style scoped>

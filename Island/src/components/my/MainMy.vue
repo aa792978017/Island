@@ -1,57 +1,73 @@
 <template>
-  <div>
-    <vheader :headTitle="headTitle"/>
-    <mt-navbar v-model="selected" >
-      <mt-tab-item id="1">
-        <mt-cell title="关注">
-          <img slot="icon" src="../../assets/关注的人2.png" width="24" height="24">
-        </mt-cell>
-      </mt-tab-item>
-      <mt-tab-item id="2">
-        <mt-cell title="收藏">
-          <img slot="icon" src="../../assets/收藏.png" width="24" height="24">
-        </mt-cell>
-      </mt-tab-item>
-      <mt-tab-item id="3">
-        <mt-cell title="举报">
-          <img slot="icon" src="../../assets/投诉举报.png" width="24" height="24">
-        </mt-cell>
-      </mt-tab-item>
-    </mt-navbar>
-    <!-- tab-container -->
-    <mt-tab-container v-model="selected">
-      <mt-tab-container-item id="1">
-        <mt-cell v-for="n in 10" :value="'关注 ' + n" />
-      </mt-tab-container-item>
-      <mt-tab-container-item id="2">
-        <mt-cell v-for="n in 4" :value="'收藏 ' + n" />
-      </mt-tab-container-item>
-      <mt-tab-container-item id="3">
-        <mt-cell v-for="n in 6" :value="'举报 ' + n" />
-      </mt-tab-container-item>
-    </mt-tab-container>
+  <div class="out">
+    <div>
+      <vheader :headTitle="headTitle"/>
+    </div>
+    <div class="back">
+      <mt-cell :title="'帐号管理'" class="friend" is-link>
+      </mt-cell>
+      <mt-cell :title="'个人信息'" class="friend" is-link>
+      </mt-cell>
+      <mt-cell :title="'消息设置'" class="friend up" is-link>
+      </mt-cell>
+      <mt-cell :title="'隐私设置'" class="friend" is-link>
+      </mt-cell>
+      <mt-cell :title="'常见问题'" class="friend" is-link>
+      </mt-cell>
+      <mt-cell :title="'新版功能'" class="friend" is-link>
+      </mt-cell>
+      <mt-cell :title="'用户反馈'" class="friend up" is-link>
+      </mt-cell>
+      <mt-cell :title="'其他设置'" class="friend" is-link>
+      </mt-cell>
+      <mt-button class="exit" size="large" @click="exit" >退出登录</mt-button>
+    </div>
   </div>
 </template>
 
 <script>
-  import Header from '../main/header'
-  export default {
-    name: 'mainMy',
-    components: {
-      vheader: Header
-    },
-    data () {
-      return {
-        selected: '1',
-      }
-    },
-    props:['headTitle']
+import Header from '../main/header'
+import { MessageBox } from 'mint-ui'
+export default {
+  name: 'mainMy',
+  components: {
+    vheader: Header
+  },
+  data () {
+    return {
+      selected: '1'
+    }
+  },
+  methods: {
+    exit () {
+      MessageBox({
+        title: '提示',
+        message: '确定执行此操作?',
+        showCancelButton: true
+      })
+    }
   }
+}
 </script>
 
 <style scoped>
   .mint-navbar >.mint-tab-item {
     padding: 0px 0;
     font-size: 15px;
+  }
+  .friend {
+    border-bottom: #EEEEEE solid thin;
+  }
+  .back {
+    background-color: #eaeaea;
+    padding: 10px 0 80px 0;
+    width: 100%;
+  }
+  .exit {
+    margin-top: 10px;
+    background: white;
+  }
+  .up {
+    margin-top: 10px;
   }
 </style>
