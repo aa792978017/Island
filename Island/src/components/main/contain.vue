@@ -10,7 +10,7 @@
         <vfriend :headTitle="selected"/>
       </mt-tab-container-item>
       <mt-tab-container-item id="广场">
-        <vsquare :headTitle="selected"/>
+        <vsquare :headTitle="selected" :secretList="secretList"/>
       </mt-tab-container-item>
       <mt-tab-container-item id="首页">
         <vhome :headTitle="selected"/>
@@ -52,6 +52,7 @@ import Home from '.././home/home'
 import Square from '../square/square'
 export default {
   name: 'contain',
+  props: ['secretList'],
   components: {
     'vmainmy': MainMy,
     'vfriend': Friend,
@@ -64,7 +65,8 @@ export default {
       selected: '我的'
     }
   },
-  mounted: {
+  mounted () {
+    alert(this.secretList + "1111")
   },
   methods: {
   }

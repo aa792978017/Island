@@ -1,5 +1,5 @@
 <template>
-  <vcontain></vcontain>
+  <vcontain :secretList="secretList"></vcontain>
 </template>
 
 <script>
@@ -12,10 +12,11 @@ export default {
   },
   data () {
     return {
-      name: ''
+      name: '',
+      secretList: []
     }
   },
-  mounted () {
+  mounted() {
     /* 页面挂载获取保存的cookie值，渲染到页面上 */
     let uname = getCookie('username')
     this.name = uname
@@ -23,11 +24,26 @@ export default {
     if (uname === '') {
       this.$router.push('/')
     }
+    this.getAllSecret()
   },
   methods: {
     quit () {
       /* 删除cookie */
       delCookie('username')
+    },
+    getAllSecret () {
+      // alert(1)
+      var that = this
+      this.$http.post('http://localhost:8080/square/getAllSecret').then(function (response) {
+        if (response.data.success) {
+          if (response.data.code === 200) {
+            alert('获取信息成功')
+            that.secretList = response.data.data
+          }
+        } else {
+          alert('失败')
+        }
+      })
     }
   }
 }
