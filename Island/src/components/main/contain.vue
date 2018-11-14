@@ -19,7 +19,7 @@
        <vsecret :headTitle="selected"/>
       </mt-tab-container-item>
     </mt-tab-container>
-    <mt-tabbar fixed="true" v-model="selected">
+    <mt-tabbar fixed  v-model="selected">
       <mt-tab-item id="首页">
         <img slot="icon" src="../../assets/首页.png">
         首页
@@ -66,7 +66,7 @@ export default {
     }
   },
   mounted () {
-    alert(this.secretList + "1111")
+    // alert(this.secretList + "1111")
   },
   methods: {
   }

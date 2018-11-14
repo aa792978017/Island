@@ -31,7 +31,8 @@
           <!--<vmainsecret/>-->
         <!--</mt-cell>-->
         <!--<mt-cell  :value="最新 " >-->
-          <vmainsecret :secretList="secretList"/>
+          <!--<vmainsecret :secretList="secretList"/>-->
+        <vmainsecret />
         <!--</mt-cell>-->
       </mt-tab-container-item>
     </mt-tab-container>
@@ -49,12 +50,30 @@ export default {
   },
   data () {
     return {
-      selected: '1'
+      selected: '1',
+      secretListNow: []
     }
   },
-  props: ['headTitle', 'secretList'],
+  props: ['headTitle'],
   mounted () {
-    alert(this.secretList + '22222')
+    // alert(this.secretList + '22222')
+  },
+  methods: {
+    // getAllSecret () {
+    //   // alert(1)
+    //   var that = this
+    //   this.$http.post('http://localhost:8080/square/getAllSecret').then(function (response) {
+    //     if (response.data.success) {
+    //       if (response.data.code === 200) {
+    //         alert('获取信息成功')
+    //         that.secretListNow = response.data.data
+    //         alert(that.secretList)
+    //       }
+    //     } else {
+    //       alert('失败')
+    //     }
+    //   })
+    // }
   }
 }
 

@@ -33,6 +33,7 @@ export default {
   components: {
     vheader: Header
   },
+  props: ['headTitle'],
   data () {
     return {
       selected: '1'

@@ -4,8 +4,8 @@
         v-infinite-scroll="loadMore"
         infinite-scroll-disabled="loading"
         infinite-scroll-distance="10" >
-        <li v-for="item in secret" class="main_secret">
-          <div class="secret-head"  :key="this">
+        <li v-for="item in secret" class="main_secret"  v-bind="this">
+          <div class="secret-head" >
             <span style="" class="image-div">
                 <img src="../../assets/头像 男孩.png" class="user-image" />
               <span class="secret-head-text">
@@ -24,7 +24,7 @@
           </div>
           <div class="secret-contain">
             <span class="secret-contain-word">
-              <!--{{ item.micContent}}-->
+              {{ item.micContent}}
             </span>
           </div>
           <div class="secret-function">
@@ -51,7 +51,7 @@
 // import { Toast } from 'mint-ui'
 export default {
   name: 'MainSecret',
-  props: ['secretList'],
+  // props: ['secretList'],
   data () {
     return {
       selected: '',
@@ -116,25 +116,40 @@ export default {
       ]
     }
   },
-  mounted () {
-    alert(this.secretList + '3333')
+  beforeMount () {
+    // alert(this.secretList + '3333')
+    this.getAllSecret()
     this.secret = this.secretList
-
   },
   methods: {
     loadMore () {
-      this.loading = true
-      setTimeout(() => {
-        let last = this.list[this.list.length - 1]
-        for (let i = 1; i <= 10; i++) {
-          this.list.push(last + i)
-        }
-        this.loading = false
-      }, 2500)
+      // this.loading = true
+      // setTimeout(() => {
+      //   let last = this.list[this.list.length - 1]
+      //   for (let i = 1; i <= 10; i++) {
+      //     this.list.push(last + i)
+      //   }
+      //   this.loading = false
+      // }, 2500)
     },
     setSecret () {
       // alert(this.secretList.length)
-      this.secret = secretList
+      // this.secret = secretList
+    },
+    getAllSecret () {
+      // alert(1)
+      var that = this
+      this.$http.post('http://localhost:8080/square/getAllSecret').then(function (response) {
+        if (response.data.success) {
+          if (response.data.code === 200) {
+            // alert('获取信息成功')
+            that.secret = response.data.data
+            // alert(that.secret)
+          }
+        } else {
+          alert('失败')
+        }
+      })
     }
 
   }
