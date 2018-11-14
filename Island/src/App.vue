@@ -16,12 +16,12 @@ export default {
     }
   },
   methods: {
-    init () {
-      this.selected = 1
-    }
+    // init () {
+    //   this.selected = 1
+    // }
   },
   beforeCreate () {
-    this.init()
+    // this.init()
   }
 
 }

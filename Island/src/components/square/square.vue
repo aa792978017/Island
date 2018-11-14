@@ -21,13 +21,19 @@
     <!-- tab-container -->
     <mt-tab-container v-model="selected">
       <mt-tab-container-item id="1">
-        <mt-cell v-for="n in 10" :value="'关注 ' + n" />
+        <!--<mt-cell v-for="n in 10" :value="'关注 ' + n" />-->121
       </mt-tab-container-item>
       <mt-tab-container-item id="2">
         <mt-cell v-for="n in 4" :value="'推荐 ' + n" />
       </mt-tab-container-item>
       <mt-tab-container-item id="3">
-        <mt-cell v-for="n in 6" :value="'最新 ' + n" />
+        <!--<mt-cell v-for="n in 6" :value="'最新 ' + n" >-->
+          <!--<vmainsecret/>-->
+        <!--</mt-cell>-->
+        <!--<mt-cell  :value="最新 " >-->
+          <!--<vmainsecret :secretList="secretList"/>-->
+        <vmainsecret />
+        <!--</mt-cell>-->
       </mt-tab-container-item>
     </mt-tab-container>
   </div>
@@ -35,23 +41,50 @@
 
 <script>
 import Header from '../main/header'
+import MainSecret from '../secret/MainSecret'
 export default {
   name: 'square',
   components: {
-    vheader: Header
+    vheader: Header,
+    vmainsecret: MainSecret
   },
   data () {
     return {
-      selected: '1'
+      selected: '1',
+      secretListNow: []
     }
   },
-  props: ['headTitle']
+  props: ['headTitle'],
+  mounted () {
+    // alert(this.secretList + '22222')
+  },
+  methods: {
+    // getAllSecret () {
+    //   // alert(1)
+    //   var that = this
+    //   this.$http.post('http://localhost:8080/square/getAllSecret').then(function (response) {
+    //     if (response.data.success) {
+    //       if (response.data.code === 200) {
+    //         alert('获取信息成功')
+    //         that.secretListNow = response.data.data
+    //         alert(that.secretList)
+    //       }
+    //     } else {
+    //       alert('失败')
+    //     }
+    //   })
+    // }
+  }
 }
+
 </script>
 
 <style scoped>
   .mint-navbar >.mint-tab-item {
     padding: 0px 0;
     font-size: 15px;
+  }
+  .mint-cell-title{
+    display: none;
   }
 </style>

@@ -48,7 +48,7 @@ export default{
       } else {
         let data = {'neckName': this.username, 'password': this.password}
         /* 接口请求 */
-        this.$http.post('http://localhost:8433/login', data).then((res) => {
+        this.$http.post('http://localhost:8080/login', data).then((res) => {
           console.log(res)
           /* 接口的传值是(-1,该用户不存在),(0,密码错误)，同时还会检测管理员账号的值 */
           if (res.data === -1) {
@@ -105,7 +105,7 @@ export default{
 }
 </script>
 
-<style>
+<style scoped>
   .login-wrap{text-align:center;position:relative;top:50px;}
   .register-wrap{text-align:center;position:relative;top:50px;}
   img{position:relative;top:50px;}
