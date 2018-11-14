@@ -7,7 +7,6 @@
 
 <script>
 import Header from '.././main/header'
-import { setCookie,getCookie,delCookie } from '../../assets/js/cookie.js'
 export default {
   name: 'home',
   components: {

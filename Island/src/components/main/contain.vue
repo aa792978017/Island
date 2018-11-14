@@ -19,7 +19,7 @@
        <vsecret :headTitle="selected"/>
       </mt-tab-container-item>
     </mt-tab-container>
-    <mt-tabbar fixed="true" v-model="selected">
+    <mt-tabbar v-model="selected" fixed>
       <mt-tab-item id="首页">
         <img slot="icon" src="../../assets/首页.png">
         首页
@@ -63,11 +63,11 @@ export default {
     return {
       selected: '我的'
     }
-  },
-  mounted: {
-  },
-  methods: {
   }
+  // mounted: {
+  // },
+  // methods: {
+  // }
 }
 </script>
 
