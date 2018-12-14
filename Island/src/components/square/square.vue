@@ -1,7 +1,7 @@
 <template>
   <div>
     <vheader :headTitle="headTitle"/>
-    <mt-navbar v-model="selected" >
+    <mt-navbar v-model="selected" fixed class="navbar">
       <mt-tab-item id="1">
         <mt-cell title="关注">
           <img slot="icon" src="../../assets/关注的人2.png" width="24" height="24">
@@ -19,12 +19,13 @@
       </mt-tab-item>
     </mt-navbar>
     <!-- tab-container -->
-    <mt-tab-container v-model="selected">
+    <mt-tab-container v-model="selected" class="container">
       <mt-tab-container-item id="1">
-        <!--<mt-cell v-for="n in 10" :value="'关注 ' + n" />-->121
+        <!--<mt-cell v-for="n in 10" :value="'关注 ' + n" />-->
+        <vwriteexplore />
       </mt-tab-container-item>
       <mt-tab-container-item id="2">
-        <mt-cell v-for="n in 4" :value="'推荐 ' + n" />
+        <vmainexplore />
       </mt-tab-container-item>
       <mt-tab-container-item id="3">
         <!--<mt-cell v-for="n in 6" :value="'最新 ' + n" >-->
@@ -42,11 +43,15 @@
 <script>
 import Header from '../main/header'
 import MainSecret from '../secret/MainSecret'
+import MainExplore from '../square/MainExplore'
+import WriteExplore from '../square/WriteExplore'
 export default {
   name: 'square',
   components: {
     vheader: Header,
-    vmainsecret: MainSecret
+    vmainsecret: MainSecret,
+    vmainexplore: MainExplore,
+    vwriteexplore: WriteExplore
   },
   data () {
     return {
@@ -86,5 +91,11 @@ export default {
   }
   .mint-cell-title{
     display: none;
+  }
+  .navbar {
+    top: 40px;
+  }
+  .container {
+    margin-top: 52px;
   }
 </style>

@@ -23,3 +23,10 @@ export function getCookie (name) {
 export function delCookie (name) {
   setCookie(name, '', -1)
 }
+
+export function setUserIdSession (userId) {
+  sessionStorage.setItem('userId', userId)
+}
+export function getUserIdFromSession () {
+  return sessionStorage.getItem('userId')
+}

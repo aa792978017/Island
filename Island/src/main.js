@@ -12,6 +12,40 @@ Vue.config.productionTip = false
 Vue.use(MintUI)
 Vue.use(VueResource)
 
+const transitions = []
+
+const hookTransition = (transition) => {
+  if (transitions.indexOf(transition) !== -1) return
+
+  const getVueInstance = (element) => {
+    let instance = element.__vue__
+    if (!instance) {
+      const textNode = element.previousSibling
+      if (textNode.__vue__) {
+        instance = textNode.__vue__
+      }
+    }
+    return instance
+  }
+
+  Vue.transition(transition, {
+    afterEnter (el) {
+      const instance = getVueInstance(el)
+
+      if (instance) {
+        instance.doAfterOpen && instance.doAfterOpen()
+      }
+    },
+    afterLeave (el) {
+      const instance = getVueInstance(el)
+
+      if (instance) {
+        instance.doAfterClose && instance.doAfterClose()
+      }
+    }
+  })
+}
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

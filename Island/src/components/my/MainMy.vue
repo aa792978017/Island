@@ -61,7 +61,7 @@ export default {
   }
   .back {
     background-color: #eaeaea;
-    padding: 10px 0 80px 0;
+    padding: 10px 0 40px 0;
     width: 100%;
   }
   .exit {

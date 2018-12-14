@@ -13,7 +13,8 @@ export default {
   data () {
     return {
       name: '',
-      secretList: []
+      secretList: [],
+      exploreList: []
     }
   },
   beforeMount () {
@@ -32,7 +33,7 @@ export default {
     quit () {
       /* 删除cookie */
       delCookie('username')
-    },
+    }
     // getAllSecret () {
     //   // alert(1)
     //   var that = this

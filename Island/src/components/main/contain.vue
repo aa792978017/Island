@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="test">
     <!-- tab-container -->
-    <mt-tab-container v-model="selected">
+    <mt-tab-container v-model="selected" class="container">
       <mt-tab-container-item id="我的">
         <!--我的组件-->
         <vmainmy :headTitle="selected"></vmainmy>
@@ -10,7 +10,7 @@
         <vfriend :headTitle="selected"/>
       </mt-tab-container-item>
       <mt-tab-container-item id="广场">
-        <vsquare :headTitle="selected"/>
+        <vsquare :headTitle="selected" :secretList="secretList"/>
       </mt-tab-container-item>
       <mt-tab-container-item id="首页">
         <vhome :headTitle="selected"/>
@@ -19,7 +19,9 @@
        <vsecret :headTitle="selected"/>
       </mt-tab-container-item>
     </mt-tab-container>
-    <mt-tabbar v-model="selected" fixed>
+
+    <mt-tabbar fixed  v-model="selected">
+
       <mt-tab-item id="首页">
         <img slot="icon" src="../../assets/首页.png">
         首页
@@ -52,6 +54,7 @@ import Home from '.././home/home'
 import Square from '../square/square'
 export default {
   name: 'contain',
+  props: ['secretList'],
   components: {
     'vmainmy': MainMy,
     'vfriend': Friend,
@@ -63,6 +66,12 @@ export default {
     return {
       selected: '我的'
     }
+  },
+  mounted () {
+    // alert(this.secretList + "1111")
+  },
+  methods: {
+
   }
   // mounted: {
   // },
@@ -72,5 +81,12 @@ export default {
 </script>
 
 <style scoped>
-
+.test {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 100%;
+  bottom: 55px;
+  overflow: auto;
+}
 </style>

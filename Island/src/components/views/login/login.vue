@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import {setCookie, getCookie} from '../../../assets/js/cookie.js'
+import {setCookie, getCookie, setUserIdSession} from '../../../assets/js/cookie.js'
 export default{
   data () {
     return {
@@ -46,7 +46,7 @@ export default{
       if (this.username === '' || this.password === '') {
         alert('请输入用户名或密码')
       } else {
-        let data = {'neckName': this.username, 'password': this.password}
+        let data = {'userName': this.username, 'password': this.password}
         /* 接口请求 */
         this.$http.post('http://localhost:8080/login', data).then((res) => {
           console.log(res)
@@ -64,6 +64,8 @@ export default{
             this.tishi = '登录成功'
             this.showTishi = true
             setCookie('username', this.username, 1000 * 60)
+            setUserIdSession(res.data.data)
+            alert(res.data.data)
             setTimeout(function () {
               this.$router.push('/mainhome')
             }.bind(this), 1000)

@@ -118,8 +118,8 @@ export default {
   },
   beforeMount () {
     // alert(this.secretList + '3333')
-    this.getAllSecret()
-    this.secret = this.secretList
+    // this.getAllSecret()
+    // this.secret = this.secretList
   },
   methods: {
     loadMore () {
@@ -163,6 +163,8 @@ export default {
   }
   ul {
     padding-left: 0px;
+    margin-top: 0;
+    margin-bottom: 0;
   }
   li {
     background-color: #eaeaea;
